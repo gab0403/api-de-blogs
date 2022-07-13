@@ -1,14 +1,14 @@
 'use strict'
 const user = (sequelize, DataTypes) => {
     const Users = sequelize.define('User', {
-        id: DataTypes.INTEGER,
+        id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
         displayName: DataTypes.STRING,
         email: DataTypes.STRING,
         password: DataTypes.STRING,
         image: DataTypes.STRING,
     },
     {
-        underscored: true,
+        timestamps: false,
         tableName: 'Users'
     });
 

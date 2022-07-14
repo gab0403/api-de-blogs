@@ -20,4 +20,9 @@ const userValidate = async ({ displayName, email, password, image }) => {
     return result;
 };
 
-module.exports = { userValidate };
+const getUsers = async () => {
+  const result = await User.findAll({ attributes: { exclude: ['password'] } });
+  return result;
+};
+
+module.exports = { userValidate, getUsers };
